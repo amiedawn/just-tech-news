@@ -39,6 +39,7 @@ router.get("/", withAuth, (req, res) => {
     ],
   })
     .then((dbPostData) => {
+      //serialize the Sequelize data
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render("dashboard", { posts, loggedIn: true });
     })
